@@ -1,7 +1,8 @@
+const prompt = require("prompt-sync")({sigint : true})
 // This is our main function
-function fizzbuzz() {
-
-    for (var i = 1; i <= 100; i++){
+function fizzbuzz(N) {
+    
+    for (var i = 1; i <= N; i++){
 
         var output = [];
         if (i%3 == 0){
@@ -40,5 +41,6 @@ function fizzbuzz() {
 }
 
 // Now, we run the main function:
-fizzbuzz();
+const N = prompt("Enter number> ");
+fizzbuzz(N);
 
