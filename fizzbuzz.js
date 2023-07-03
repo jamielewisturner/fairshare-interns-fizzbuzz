@@ -1,3 +1,4 @@
+//import {argv} from "node:process"
 const prompt = require("prompt-sync")({sigint : true})
 // This is our main function
 function fizzbuzz(N) {
@@ -5,19 +6,19 @@ function fizzbuzz(N) {
     for (var i = 1; i <= N; i++){
 
         var output = [];
-        if (i%3 == 0){
+        if (i%3 == 0 && options[3]){
             output.push("Fizz");
         }
-        if (i%5 == 0){
+        if (i%5 == 0 && options[5]){
             output.push("Buzz");
         }
-        if (i%7 == 0){
+        if (i%7 == 0 && options[7]){
             output.push("Bang");
         }
-        if (i%11 == 0){
+        if (i%11 == 0 && options[11]){
             output = ["Bong"];
         }
-        if (i%13 == 0){
+        if (i%13 == 0 && options[13]){
             var j = 0;
             for ( ; j < output.length; j++){
                 if (output[j][0] == "B"){
@@ -26,7 +27,7 @@ function fizzbuzz(N) {
             }
             output.splice(j, 0, "Fezz")
         }
-        if (i%17 == 0){
+        if (i%17 == 0 && options[17]){
             output = output.reverse()
         }
         
@@ -37,10 +38,19 @@ function fizzbuzz(N) {
         console.log(output.join(""));
     }
 
-
 }
+
+const options = {}
+
+process.argv.forEach((val, index) => {
+    if (index >= 2){
+        options[val] = true;
+    }
+});
+
 
 // Now, we run the main function:
 const N = prompt("Enter number> ");
 fizzbuzz(N);
+
 
