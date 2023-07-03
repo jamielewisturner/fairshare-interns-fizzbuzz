@@ -16,6 +16,9 @@ function fizzbuzz() {
         if (i%7 == 0){
             output+="Bang";
         }
+        if (i%11 == 0){
+            output="Bong";
+        }
         
 
         if (output == ""){
