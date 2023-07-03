@@ -1,38 +1,39 @@
 // This is our main function
 function fizzbuzz() {
 
-
-   
-
     for (var i = 1; i <= 100; i++){
 
-        var output = "";
+        var output = [];
         if (i%3 == 0){
-            output+="Fizz";
+            output.push("Fizz");
         }
         if (i%5 == 0){
-            output+="Buzz";
+            output.push("Buzz");
         }
         if (i%7 == 0){
-            output+="Bang";
+            output.push("Bang");
         }
         if (i%11 == 0){
-            output="Bong";
+            output = ["Bong"];
         }
         if (i%13 == 0){
-
-            index = output.indexOf('B');
-            if (index == -1){
-                index = 0;
+            var j = 0;
+            for ( ; j < output.length; j++){
+                if (output[j][0] == "B"){
+                    break;
+                }
             }
-            output = output.slice(0, index) + "Fezz" + output.slice(index)
+            output.splice(j, 0, "Fezz")
+        }
+        if (i%17 == 0){
+            output = output.reverse()
         }
         
 
-        if (output == ""){
-            output = i;
+        if (output.length == 0){
+            output = [i];
         }
-        console.log(output);
+        console.log(output.join(""));
     }
 
 
