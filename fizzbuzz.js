@@ -19,6 +19,14 @@ function fizzbuzz() {
         if (i%11 == 0){
             output="Bong";
         }
+        if (i%13 == 0){
+
+            index = output.indexOf('B');
+            if (index == -1){
+                index = 0;
+            }
+            output = output.slice(0, index) + "Fezz" + output.slice(index)
+        }
         
 
         if (output == ""){
