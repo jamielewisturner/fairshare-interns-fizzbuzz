@@ -2,7 +2,7 @@
 const prompt = require("prompt-sync")({sigint : true})
 // This is our main function
 
-function fizzbuzz(i, options){
+function fizzbuzzHelper(i, options){
     var output = [];
     if (i%3 == 0 && options[3]){
         output.push("Fizz");
@@ -36,12 +36,12 @@ function fizzbuzz(i, options){
     return output.join("");
 }
 
-function fizzbuzzAll(N, options) {
-    
+function fizzbuzz(N, options) {
+    var output = "";
     for (var i = 1; i <= N; i++){
-        fizzbuzz(i, options)
+        output += fizzbuzzHelper(i, options) + "\n";
     }
-
+    return output;
 }
 
 const options = {}
@@ -55,7 +55,7 @@ process.argv.forEach((val, index) => {
 
 // Now, we run the main function:
 //const N = prompt("Enter number> ");
-//fizzbuzzAll(N, options);
+//fizzbuzz(N, options);
 
 
 module.exports = fizzbuzz
