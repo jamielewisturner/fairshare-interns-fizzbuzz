@@ -2,7 +2,7 @@
 const prompt = require("prompt-sync")({sigint : true})
 // This is our main function
 
-function fizzbuzzHelper(i, options){
+function fizzbuzz(i, options){
     var output = [];
     if (i%3 == 0 && options[3]){
         output.push("Fizz");
@@ -36,12 +36,10 @@ function fizzbuzzHelper(i, options){
     return output.join("");
 }
 
-function fizzbuzz(N, options) {
-    var output = "";
+function fizzbuzzAll(N, options) {
     for (var i = 1; i <= N; i++){
-        output += fizzbuzzHelper(i, options) + "\n";
+        console.log(fizzbuzzHelper(i, options));
     }
-    return output;
 }
 
 const options = {}
